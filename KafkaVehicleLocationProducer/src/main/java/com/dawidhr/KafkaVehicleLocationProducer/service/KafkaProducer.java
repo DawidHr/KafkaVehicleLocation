@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class KafkaProducer {
     @Autowired
-    KafkaTemplate<String, String> kafkaTemplate;
+    KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessage(VehicleLocation vehicleLocation) {
-        kafkaTemplate.send(KafkaTopic.VEHICLE_LOCATION.getTopicName(), vehicleLocation.toString());
+        kafkaTemplate.send(KafkaTopic.VEHICLE_LOCATION.getTopicName(), vehicleLocation);
     }
 }
