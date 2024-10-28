@@ -14,6 +14,10 @@ public class KafkaProducer {
     KafkaTemplate<String, Object> kafkaTemplate;
 
     public void sendMessage(VehicleLocation vehicleLocation) {
-        kafkaTemplate.send(KafkaTopic.VEHICLE_LOCATION.getTopicName(), vehicleLocation);
+        kafkaTemplate.send(KafkaTopic.VEHICLE_LOCATION.getTopicName(), createKey(vehicleLocation), vehicleLocation);
+    }
+
+    private String createKey(VehicleLocation vehicleLocation) {
+        return vehicleLocation.getUserId() + "-" + vehicleLocation.getVehicleId();
     }
 }
