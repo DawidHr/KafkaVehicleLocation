@@ -3,9 +3,11 @@ package com.dawidhr.KafkaVehicleLocationConsumer.dao;
 import com.dawidhr.KafkaVehicleLocationConsumer.model.VehicleLocation;
 import com.dawidhr.KafkaVehicleLocationConsumer.repository.VehicleLocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class VehicleLocationDAOImpl implements VehicleLocationDAO {
 
     @Autowired
