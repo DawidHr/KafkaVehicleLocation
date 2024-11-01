@@ -1,0 +1,12 @@
+name: kafka_vehicle_location
+services:
+  vehicleDB:
+    image: "mysql:8.0"
+    container_name: "vehicleDB"
+    ports:
+      - "7001:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=test"
+    volumes:
+        - "./sql/baza.sql:/docker-entrypoint-initdb.d/1.sql"
+        - "./sql/:/test/"
